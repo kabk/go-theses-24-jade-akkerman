@@ -12,19 +12,19 @@ body {
 
 @font-face {
     font-family: "diarycode";
-    src: url(assets/Jade_diary.otf)
+    src: url('../jade_diary.otf')
 }
 
 @font-face {
   font-family: 'sabon';
-  src: url(assets/SabonLTStd-Roman.otf); 
+  src: url('../sabon-roman.otf'); 
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'sabon';
-  src: url(assets/SabonLTStd-Italic.otf); 
+  src: url('../sabon-italic.otf'); 
   font-weight: normal;
   font-style: italic;
 }
