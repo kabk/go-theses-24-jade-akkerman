@@ -413,7 +413,13 @@ text-decoration-color: rgb(69, 69, 69);
         
         
 
-
+          .meerindent {
+            padding-left: 1rem;
+          }
+          
+          .nogmeerindent {
+            padding-left: 3.8rem;
+          }
 
       
         .footer {
