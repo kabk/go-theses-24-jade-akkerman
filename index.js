@@ -28,15 +28,19 @@ $(document).ready(function() {
         element.style.width = `${Math.max(minWidth, newWidth)}px`;
         element.style.height = `${Math.max(minHeight, newHeight)}px`;
     }
+// Activate the navigation links
+$(".menu-item").click(function () {
+    // get the id of the clicked menu item
+    var id = $(this).attr('id');
+    // use it to open, close, or minimize the connected popup
 
-    // Activate the navigation links
-    $(".menu-item").click(function () {
-        // get the id of the clicked menu item
-        var id = $(this).attr('id');
-        // use it to open, close, or minimize the connected popup
-
+    // Check if the popup is already open
+    const popupElement = document.getElementById("popup-" + id);
+    if (popupElement.style.display === 'block') {
+        // If already open, close it
+        popupElement.style.display = 'none';
+    } else {
         // Show the newly opened popup
-        const popupElement = document.getElementById("popup-" + id);
         popupElement.style.display = 'block';
         // Set the z-index of the popup to be the highest among all popups plus 1
         const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
@@ -53,7 +57,8 @@ $(document).ready(function() {
 
         // Activate the resize handles for the opened popup
         makeResizable(popupElement);
-    });
+    }
+});
 
 
 

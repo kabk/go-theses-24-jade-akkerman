@@ -155,6 +155,14 @@ ul {
   border: ridge 5px #cccccc;
 }
 
+#popup-references {
+  top: 30%;
+  left: 20%;
+  width: 70vmin;
+  height: 40%;
+  border: ridge 5px #cccccc;
+}
+
 .popup {
   font-family: "sabon";
   line-height: 1.3rem;
@@ -380,10 +388,60 @@ text-decoration-color: rgb(69, 69, 69);
   }
 
   .mobile-only{
-    display:block;
+
+      
+        .header {
+          height: 60px; /* Increase header height for better visibility */
+        }
+      
+        .title {
+          font-size: 1.2rem; /* Decrease title font size for better fit */
+        }
+      
+        /* .menu-item {
+          padding: 10px; 
+          height: auto;  
+        } */
+      
+        .footer {
+          bottom: 5vh; /* Adjust footer position */
+        }
+      
+        .popup {
+          width: 80%; /* Adjust popup width for smaller screens */
+          height: auto; /* Let popup height adjust based on content */
+          top: 10%; /* Adjust popup position */
+          left: 50%; /* Center popup horizontally */
+          transform: translateX(-50%); /* Center popup horizontally */
+        }
+      
+        .close-button {
+          top: 5px; /* Adjust close button position */
+          right: 5px; /* Adjust close button position */
+        }
+      
+        /* .drag-bar {
+          padding: 5px 10px; 
+          height: 30px; 
+          font-size: 1rem; 
+        } */
+      
+        .form-container {
+          bottom: 10%; /* Adjust form container position */
+          padding: 10px; /* Adjust form container padding */
+        }
+      
+        .insta {
+          margin-left: 0; /* Reset margin for Instagram link */
+          margin-top: 10px; /* Add margin at the top for better spacing */
+        }
+      }
+      
+
+
   }
 
-}
+
 
 
 
