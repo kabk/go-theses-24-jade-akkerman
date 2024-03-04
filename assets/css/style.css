@@ -372,17 +372,8 @@ text-decoration-color: rgb(69, 69, 69);
 
   /* your 'mobile' overriding css properties here */
 
-/*title should stay within header */
-
   /* utility classes, mobile */
 
-  .desktop-only{
-    display:none;
-  }
-
-  .mobile-only{
-
-      display: block;
       
         .header {
           height: 80px; /* Increase header height for better visibility */
