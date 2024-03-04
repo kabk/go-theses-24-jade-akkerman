@@ -161,6 +161,7 @@ ul {
   width: 70vmin;
   height: 40%;
   border: ridge 5px #cccccc;
+  font-size: small;
 }
 
 .popup {
@@ -360,14 +361,6 @@ text-decoration-color: rgb(69, 69, 69);
 /* UTILITY CLASSES */
 /* hide desktop mobile etc */
 
-.desktop-only {
-  display: block;
-}
-
-.mobile-only {
-  display: none;
-}
-
 
 
 /* WEBSITE MEDIA QUERIES */
@@ -392,7 +385,7 @@ text-decoration-color: rgb(69, 69, 69);
       display: block;
       
         .header {
-          height: 150px; /* Increase header height for better visibility */
+          height: 80px; /* Increase header height for better visibility */
         }
       
         .title {
