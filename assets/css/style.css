@@ -389,6 +389,7 @@ text-decoration-color: rgb(69, 69, 69);
 
   .mobile-only{
 
+      display: block;
       
         .header {
           height: 60px; /* Increase header height for better visibility */
