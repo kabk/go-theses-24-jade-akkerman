@@ -374,6 +374,11 @@ text-decoration-color: rgb(69, 69, 69);
 
 @media (max-width: 779px) {
       
+
+  body {
+    margin: 0;
+    height: 100vh;
+  }
         .header {
           height: 80px; /* Increase header height for better visibility */
         }
