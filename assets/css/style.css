@@ -392,11 +392,11 @@ text-decoration-color: rgb(69, 69, 69);
       display: block;
       
         .header {
-          height: 170px; /* Increase header height for better visibility */
+          height: 150px; /* Increase header height for better visibility */
         }
       
         .title {
-          font-size: 1.2rem; /* Decrease title font size for better fit */
+          font-size: 1rem; /* Decrease title font size for better fit */
         }
       
         /* .menu-item {
@@ -428,7 +428,7 @@ text-decoration-color: rgb(69, 69, 69);
         } */
       
         .form-container {
-          bottom: 3%; /* Adjust form container position */
+          bottom: 1%; /* Adjust form container position */
           padding: 10px; /* Adjust form container padding */
         }
       
