@@ -90,9 +90,9 @@ ul {
 .footer {
   position: absolute;
   width: 100%;
-  bottom: 3vh;
+  bottom: 0vh;
   left: 0%;
-  border-bottom: ridge rgba(153, 153, 160, 0.721);
+  /* border-bottom: ridge rgba(153, 153, 160, 0.721); */
   
 }
 /* #abstract {
@@ -308,7 +308,7 @@ text-decoration-color: rgb(69, 69, 69);
 
 
 .insta {
-  margin-left: 3rem;
+  margin-left: 1rem;
   text-shadow: .5px .5px 1px #ececec,0 0 0 #4f4c4c,.5px .5px 1px #ececec;
   text-decoration: none;
   font-size: 1.2rem;
@@ -382,14 +382,37 @@ text-decoration-color: rgb(69, 69, 69);
           font-size: 1.4rem; /* Decrease title font size for better fit */
         }
       
-        .menu-item {
-          padding: 4px; 
-          height: auto;  
-          font-size: 0.9rem;
-        }
+        
+          .menu-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Three columns for the first two rows */
+            gap: 10px; /* Add gap between items */
+            justify-content: center
+          }
+        
+          .menu-item {
+            flex: 0 0 calc(33.333% - 20px); 
+            /* margin: 10px;  */
+            /* padding: 4px; 
+            height: auto;  
+            font-size: 0.9rem; */
+            width: 100%;
+          }
+          .menu-item:nth-child(7),
+          .menu-item:nth-child(8) {
+           grid-column: span 2;
+          /* Adjust the last menu item in the third row */
+          /* .menu-item:nth-child(7) { */
+            /* flex: 0 0 calc(50% - 20px); */
+          }
+        
+        
+
+
+
       
         .footer {
-          bottom: 5vh; /* Adjust footer position */
+          bottom: 0vh; /* Adjust footer position */
         }
       
  
@@ -472,8 +495,8 @@ text-decoration-color: rgb(69, 69, 69);
         }
       
         .form-container {
-          bottom: 1%; /* Adjust form container position */
-          padding: 10px; /* Adjust form container padding */
+          bottom: 0vh; /* Adjust form container position */
+          padding: 1px; /* Adjust form container padding */
         }
       
         .insta {
@@ -485,10 +508,10 @@ text-decoration-color: rgb(69, 69, 69);
           display: none;
           position: fixed ;
           left: 40%;
-          bottom: -1%;
+          bottom: -3%;
           transform: translate(-30%, -30%);
           background-color: none;
-          padding: 2px;
+          padding: 0px;
           text-align: center;
           color: rgba(75,75,75,.8);
           text-shadow: .5px .5px 1px #ececec,0 0 0 #000,.5px .5px 1px #ececec;
