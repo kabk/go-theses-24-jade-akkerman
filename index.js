@@ -61,6 +61,7 @@ $(".menu-item").click(function () {
 
         // Show the newly opened popup
         popupElement.style.display = 'block';
+        popupElement.style.zIndex = 99;
         // make the popup draggable with bar for both vertical and horizontal dragging, and resizable
         makeDraggableWithBar(popupElement);
 
