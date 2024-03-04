@@ -369,11 +369,6 @@ text-decoration-color: rgb(69, 69, 69);
 /* style this one first and then use the subsequent ones in a cascading way (from general to specific) */
 
 @media (max-width: 779px) {
-
-  /* your 'mobile' overriding css properties here */
-
-  /* utility classes, mobile */
-
       
         .header {
           height: 80px; /* Increase header height for better visibility */
@@ -424,7 +419,7 @@ text-decoration-color: rgb(69, 69, 69);
       
 
 
-  }
+
 
 
 
