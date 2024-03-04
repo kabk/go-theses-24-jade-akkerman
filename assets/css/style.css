@@ -100,64 +100,64 @@ ul {
 } */
 
 #popup-abstract {
-  top: 5%;
-  left: 16%;
-  width: 60vmin;
+  top: 2%;
+  left: 60%;
+  width: 40vmin;
   height: auto;
   border: ridge 5px #cccccc;
 }
 
 #popup-foreword {
-  top: 5%;
-  left: 16%;
-  width: 60vmin;
+  top: 9%;
+  left: 55%;
+  width: 50vmin;
   height: auto;
   border: ridge 5px #cccccc;
 }
 
 #popup-intro {
-  top: 12%;
-  left: 22%;
-  width: 60vmin;
-  height: 80%;
-  border: ridge 5px #cccccc;
-}
-
-#popup-keeping {
-  top: 20%;
-  left: 20%;
-  width: 70vmin;
-  height: 70%;
+  top: 5%;
+  left: 13%;
+  width: 40vmin;
+  height: auto;
   border: ridge 5px #cccccc;
 }
 
 #popup-gatekeep {
-  top: 20%;
-  left: 17%;
-  width: 70vmin;
-  height: 70%;
+  top: 8%;
+  left: 35%;
+  width: 55vmin;
+  height: 50%;
+  border: ridge 5px #cccccc;
+}
+
+#popup-keeping {
+  top: 15%;
+  left: 21%;
+  width: 65vmin;
+  height: 50%;
   border: ridge 5px #cccccc;
 }
 
 #popup-keepout {
-  top: 30%;
-  left: 30%;
-  width: 70vmin;
-  height: 60%;
+  top: 3%;
+  left: 25%;
+  width: 80vmin;
+  height: 75%;
   border: ridge 5px #cccccc;
 }
 
 #popup-conclusion {
-  top: 30%;
-  left: 20%;
-  width: 70vmin;
+  top: 10%;
+  left: 45%;
+  width: 50vmin;
   height: 60%;
   border: ridge 5px #cccccc;
 }
 
 #popup-references {
-  top: 30%;
-  left: 20%;
+  top: 20%;
+  left: 27%;
   width: 40vmin;
   height: 40%;
   border: ridge 5px #cccccc;
@@ -323,7 +323,6 @@ text-decoration-color: rgb(69, 69, 69);
 
 .image {
   display: block;
-  padding: 5px;
   margin-left: auto;
   margin-right: auto;
   height: auto;
@@ -333,7 +332,7 @@ text-decoration-color: rgb(69, 69, 69);
 .figcaption {
   font-size: 0.6rem;
   margin-left: 8px;
-  
+  color: #000;
 }
 
 
