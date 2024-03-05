@@ -354,6 +354,7 @@ text-decoration-color: rgb(69, 69, 69);
 
 .insta {
   margin-left: 1rem;
+  margin-bottom: 1rem;
   text-shadow: .5px .5px 1px #ececec,0 0 0 #4f4c4c,.5px .5px 1px #ececec;
   text-decoration: none;
   font-size: 1.2rem;
@@ -430,7 +431,7 @@ text-decoration-color: rgb(69, 69, 69);
             width: 90%;
             height: auto;  
             justify-content: center;
-            font-size:larger;
+            /* font-size:large; */
           }
           .menu-item:nth-child(7),
           .menu-item:nth-child(8) {
