@@ -416,8 +416,10 @@ text-decoration-color: rgb(69, 69, 69);
             /* padding: 4px; 
             height: auto;  
             font-size: 0.9rem; */
-            width: 85%;
-            font-size: small;
+            width: 90%;
+            height: auto;  
+            justify-content: center;
+            font-size:larger;
           }
           .menu-item:nth-child(7),
           .menu-item:nth-child(8) {
@@ -446,67 +448,67 @@ text-decoration-color: rgb(69, 69, 69);
  
         #popup-abstract {
           top: 7%;
-          left: 23%;
-          width: 70vw;
-          height: auto;
+          left: 25%;
+          width: 73vw;
+          height: 40%;
           border: ridge 5px #cccccc;
         }
         
         #popup-foreword {
           top: 11%;
-          left: 23%;
-          width: 70vw;
-          height: auto;
+          left: 25%;
+          width: 73vw;
+          height: 65%;
           border: ridge 5px #cccccc;
         }
         
         #popup-intro {
           top: 15%;
-          left: 23%;
-          width: 70vw;
-          height: auto;
+          left: 25%;
+          width: 73vw;
+          height: 65%;
           border: ridge 5px #cccccc;
         }
         
         #popup-gatekeep {
           top: 7%;
-          left: 23%;
-          width: 70vw;
+          left: 25%;
+          width: 73vw;
           height: 80%;
           border: ridge 5px #cccccc;
         }
 
         #popup-keeping {
           top: 11%;
-          left: 23%;
-          width: 70vw;
+          left: 25%;
+          width: 73vw;
           height: 75%;
           border: ridge 5px #cccccc;
         }
         
         #popup-keepout {
           top: 15%;
-          left: 23%;
-          width: 70vw;
+          left: 25%;
+          width: 73vw;
           height: 75%;
           border: ridge 5px #cccccc;
         }
         
         #popup-conclusion {
           top: 19%;
-          left: 23%;
-          width: 70vw;
+          left: 25%;
+          width: 73vw;
           height: 70%;
           border: ridge 5px #cccccc;
         }
         
         #popup-references {
           top: 19%;
-          left: 23%;
-          width: 70%;
+          left: 25%;
+          width: 73%;
           height: 60%;
           border: ridge 5px #cccccc;
-          font-size: small;
+          /* font-size: small; */
         }
 
         #popup-gatekeep .handle-container,
@@ -563,17 +565,17 @@ text-decoration-color: rgb(69, 69, 69);
 
         }
 
-        /* #popup-abstract::-webkit-scrollbar {
+        #popup-abstract::-webkit-scrollbar {
           display: block;
-        } */
+        }
         
-        /* #popup-foreword::-webkit-scrollbar {
+        #popup-foreword::-webkit-scrollbar {
           display: block;
         }
         
         #popup-intro::-webkit-scrollbar {
           display: block;
-        } */
+        }
         
       }
       
