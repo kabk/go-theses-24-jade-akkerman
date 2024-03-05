@@ -28,40 +28,8 @@ $(document).ready(function() {
         element.style.width = `${Math.max(minWidth, newWidth)}px`;
         element.style.height = `${Math.max(minHeight, newHeight)}px`;
     }
-// Activate the navigation links
-$(".menu-item").click(function () {
-    // get the id of the clicked menu item
-    var id = $(this).attr('id');
-    // use it to open, close, or minimize the connected popup
 
-    // Check if the popup is already open
-    const popupElement = document.getElementById("popup-" + id);
-    if (popupElement.style.display === 'block') {
-        // If already open, close it
-        popupElement.style.display = 'none';
-    } else {
-        // Show the newly opened popup
-        popupElement.style.display = 'block';
-        // Set the z-index of the popup to be the highest among all popups plus 1
-        const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
-        popupElement.style.zIndex = highestZIndex + 1;
-
-        // make the popup draggable with bar for both vertical and horizontal dragging, and resizable
-        makeDraggableWithBar(popupElement);
-
-        // Activate the close button for the opened popup
-        const closeButton = popupElement.querySelector('.close-button');
-        closeButton.addEventListener('click', function () {
-            closeWindow(popupElement.id);
-        });
-
-        // Activate the resize handles for the opened popup
-        makeResizable(popupElement);
-    }
-});
-
-
-
+    // Function to make an element draggable with a drag bar
     function makeDraggableWithBar(element) {
         let isDragging = false;
         let offsetX, offsetY;
@@ -109,19 +77,6 @@ $(".menu-item").click(function () {
             }
         });
     }
-    
-    
-
-    $(".popup").click(function () {
-        const clickedPopup = this;
-    
-        // Bring the clicked popup to the front
-        const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
-        clickedPopup.style.zIndex = highestZIndex + 1;
-    });
-    
-
-    
 
     // Function to make an element resizable
     function makeResizable(element) {
@@ -155,6 +110,55 @@ $(".menu-item").click(function () {
             isResizing = false;
         });
     }
+
+    // Activate the navigation links
+    $(".menu-item").click(function () {
+        // get the id of the clicked menu item
+        var id = $(this).attr('id');
+        // use it to open, close, or minimize the connected popup
+
+        // Check if the popup is already open
+        const popupElement = document.getElementById("popup-" + id);
+        if (popupElement.style.display === 'block') {
+            // If already open, bring it to the front
+            const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
+            popupElement.style.zIndex = highestZIndex + 1;
+        } else {
+            // Show the newly opened popup
+            popupElement.style.display = 'block';
+            // Set the z-index of the popup to be the highest among all popups plus 1
+            const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
+            popupElement.style.zIndex = highestZIndex + 1;
+
+            // make the popup draggable with bar for both vertical and horizontal dragging, and resizable
+            makeDraggableWithBar(popupElement);
+
+            // Activate the close button for the opened popup
+            const closeButton = popupElement.querySelector('.close-button');
+            closeButton.addEventListener('click', function () {
+                closeWindow(popupElement.id);
+            });
+
+            // Activate the resize handles for the opened popup
+            makeResizable(popupElement);
+        }
+    });
+
+    // Function to handle window resizing for smaller screens
+    function handleWindowResize() {
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 779) {
+            // For smaller screens, close all popups except the first one
+            const popups = document.querySelectorAll('.popup');
+            for (let i = 1; i < popups.length; i++) {
+                popups[i].style.display = 'none';
+            }
+        }
+    }
+
+    // Call handleWindowResize initially and on window resize
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
 
     // Set the form to be visible by default
     var formContainer = document.getElementById('contactForm');
