@@ -12,7 +12,7 @@ body {
 
 @font-face {
     font-family: "diarycode";
-    src: url('../jade-diary.otf');
+    src: url('../jadediarymetcaps.ttf');
 }
 
 @font-face {
@@ -71,7 +71,7 @@ ul {
 .menu-item:hover {
   color: rgb(255, 255, 0);
   text-shadow: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .footer {
@@ -439,7 +439,7 @@ input[type="submit"]:hover {
   body {
     margin: 0;
     height: 100vh;
-  }
+    }
         .header {
           height: 80px; 
         }
@@ -569,11 +569,11 @@ input[type="submit"]:hover {
   
 
         .drag-bar {
-    font-size: 1rem;
-    padding: 1px 10px;
-    height: 20px;
-  }
-      
+          font-size: 1rem;
+          padding: 1px 10px;
+          height: 20px;
+        }
+            
         .form-container {
           bottom: 0vh; 
           padding: 1px; 
@@ -609,10 +609,13 @@ input[type="submit"]:hover {
           display: block;
         }
 
+
+        
         input[type="submit"] {
-          width: 60%;
+          width:auto;
           justify-content: center;
           border-radius: 0%;
+          border: #4e4d4d;
         }
 
         input[type="email"]{
@@ -622,7 +625,7 @@ input[type="submit"]:hover {
           border: 1px solid #919090; 
           font-family: "sabon";
           color: #0d00ff;
-      }
+        }
       
       input[type="text"] {
         width: 60%;
@@ -638,7 +641,7 @@ input[type="submit"]:hover {
         height: 12vh;  
         resize: none; 
         font-family: "diarycode"; 
-        line-height: 0.6rem;    
+        line-height: 0.9rem;    
       }
 
   
