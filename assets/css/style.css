@@ -610,7 +610,9 @@ input[type="submit"]:hover {
         }
 
         input[type="submit"] {
-          width: 50%;
+          width: 60%;
+          justify-content: center;
+          border-radius: 0%;
         }
 
         input[type="email"]{
@@ -624,7 +626,7 @@ input[type="submit"]:hover {
       
       input[type="text"] {
         width: 60%;
-        height: 1rem; 
+        height: 0.8rem; 
         margin-top: 3px;
         border: 1px solid #919090; 
         font-family: "sabon";
