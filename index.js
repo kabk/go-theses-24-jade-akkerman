@@ -1,4 +1,9 @@
-$(document).ready(function() {
+
+
+
+
+
+$(document).ready(function () {
     // Function to close a window
     function closeWindow(windowId) {
         const windowElement = document.getElementById(windowId);
@@ -31,49 +36,50 @@ $(document).ready(function() {
 
     // Function to make an element draggable with a drag bar
     function makeDraggableWithBar(element) {
-        let isDragging = false;
-        let offsetX, offsetY;
-    
         const dragBar = element.querySelector('.drag-bar');
-    
+
+        dragBar.addEventListener('mouseenter', () => {
+            dragBar.style.cursor = '-webkit-grab';
+        });
+
         dragBar.addEventListener('mousedown', (e) => {
             const closeButton = element.querySelector('.close-button');
-    
+
             // Check if the click is on the close button
             if (!closeButton.contains(e.target)) {
-                isDragging = true;
-    
                 // Bring the current popup to the front
                 const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
                 element.style.zIndex = highestZIndex + 1;
-    
-                offsetX = e.clientX - element.getBoundingClientRect().left;
-                offsetY = e.clientY - element.getBoundingClientRect().top;
-    
+
+                const offsetX = e.clientX - element.getBoundingClientRect().left;
+                const offsetY = e.clientY - element.getBoundingClientRect().top;
+
                 // Set the grabbing cursor when dragging starts
                 dragBar.style.cursor = '-webkit-grabbing';
-    
+
+                // Function to handle dragging
+                function handleDrag(e) {
+                    const x = e.clientX - offsetX;
+                    const y = e.clientY - offsetY;
+
+                    element.style.left = `${x}px`;
+                    element.style.top = `${y}px`;
+                }
+
+                // Function to stop dragging
+                function stopDrag() {
+                    document.removeEventListener('mousemove', handleDrag);
+                    document.removeEventListener('mouseup', stopDrag);
+                    // Revert back to default cursor when dragging ends
+                    dragBar.style.cursor = '-webkit-grab';
+                }
+
+                // Add event listeners for dragging
+                document.addEventListener('mousemove', handleDrag);
+                document.addEventListener('mouseup', stopDrag);
+
                 // Prevent default behavior to avoid selecting text during dragging
                 e.preventDefault();
-            }
-        });
-    
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const x = e.clientX - offsetX;
-                const y = e.clientY - offsetY;
-    
-                element.style.left = `${x}px`;
-                element.style.top = `${y}px`;
-            }
-        });
-    
-        document.addEventListener('mouseup', () => {
-            if (isDragging) {
-                isDragging = false;
-    
-                // Revert back to default cursor when dragging ends
-                dragBar.style.cursor = '-webkit-grab';
             }
         });
     }
@@ -81,37 +87,48 @@ $(document).ready(function() {
     // Function to make an element resizable
     function makeResizable(element) {
         const resizeHandles = element.querySelectorAll('.resize-handle');
-        let isResizing = false;
-        let originalWidth, originalHeight;
 
         resizeHandles.forEach((handle) => {
+            handle.addEventListener('mouseenter', () => {
+                handle.style.cursor = 'nwse-resize';
+            });
+
             handle.addEventListener('mousedown', (e) => {
-                isResizing = true;
-                originalWidth = element.offsetWidth;
-                originalHeight = element.offsetHeight;
-                marginLeft = (element.getBoundingClientRect().left);
-                marginTop = (element.getBoundingClientRect().top);
+                const originalWidth = element.offsetWidth;
+                const originalHeight = element.offsetHeight;
+                const marginLeft = element.getBoundingClientRect().left;
+                const marginTop = element.getBoundingClientRect().top;
+
+                // Function to handle resizing
+                function handleResize(e) {
+                    const newWidth = originalWidth + e.clientX - originalWidth - marginLeft;
+                    const newHeight = originalHeight + e.clientY - originalHeight - marginTop;
+
+                    resizeWindow(element, newWidth, newHeight);
+                }
+
+                // Function to stop resizing
+                function stopResize() {
+                    document.removeEventListener('mousemove', handleResize);
+                    document.removeEventListener('mouseup', stopResize);
+                }
+
+                // Add event listeners for resizing
+                document.addEventListener('mousemove', handleResize);
+                document.addEventListener('mouseup', stopResize);
 
                 // Prevent default behavior to avoid interference with dragging
                 e.preventDefault();
             });
         });
-
-        document.addEventListener('mousemove', (e) => {
-            if (isResizing) {
-                const newWidth = originalWidth + e.clientX - originalWidth - marginLeft;
-                const newHeight = originalHeight + e.clientY - originalHeight - marginTop;
-
-                resizeWindow(element, newWidth, newHeight);
-            }
-        });
-
-        document.addEventListener('mouseup', () => {
-            isResizing = false;
-        });
     }
 
     // Activate the navigation links
+    $(".menu-item").mouseenter(function () {
+        // Change cursor to pointer when mouse enters menu item area
+        $(this).css('cursor', 'pointer');
+    });
+
     $(".menu-item").click(function () {
         // get the id of the clicked menu item
         var id = $(this).attr('id');
@@ -163,12 +180,14 @@ $(document).ready(function() {
     // Set the form to be visible by default
     var formContainer = document.getElementById('contactForm');
     formContainer.style.display = 'block';
-  
+
     // Handle form submission
-    document.getElementById('myForm').addEventListener('submit', function (event) {
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
         event.preventDefault();
         // You can add logic here to handle the form submission
         // For now, let's just display an alert
-        alert('Thank you for sharing! \u2665' );
+        alert('Thank you for sharing! \u2665');
     });
+
 });
+

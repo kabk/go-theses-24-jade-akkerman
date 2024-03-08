@@ -65,6 +65,7 @@ ul {
   color: rgba(75,75,75,.8);
   text-shadow: .5px .5px 1px #ececec,0 0 0 #000,.5px .5px 1px #ececec;
   display: inline-block;
+  z-index: 100; 
 }
 
 .menu-item:hover {
@@ -81,7 +82,7 @@ ul {
 }
 
 
-#popup-abstract::-webkit-scrollbar {
+/* #popup-abstract::-webkit-scrollbar {
   display: none;
 }
 
@@ -91,7 +92,7 @@ ul {
 
 #popup-intro::-webkit-scrollbar {
   display: none;
-}
+} */
 
 #popup-abstract {
   top: 2%;
@@ -248,13 +249,14 @@ text-decoration-color: rgb(69, 69, 69);
   text-transform: uppercase;
   font-family:Arial, Helvetica, sans-serif;
   border: 1px solid rgba(255, 255, 255, 0);
-  cursor: pointer;
+  /* cursor: pointer; */
   z-index: 5;
 }
 
 .close-button:hover {
   border: 1px solid rgb(100, 100, 100);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .drag-bar {
@@ -266,7 +268,7 @@ text-decoration-color: rgb(69, 69, 69);
   height: 20px;
   text-transform: uppercase;
   font-size: 1rem;
-  cursor: grab;
+  /* cursor: grab; */
   flex-grow: 1;
   /* border: 1px; */
   border-style: outset;
@@ -295,7 +297,7 @@ text-decoration-color: rgb(69, 69, 69);
   right: 1px;
   background-size: cover;
   z-index: 5;
-  cursor: nwse-resize;
+  /* cursor: nwse-resize; */
   display: block;
 }
 
@@ -358,7 +360,7 @@ text-decoration-color: rgb(69, 69, 69);
 .insta:hover {
   color: rgb(0, 0, 255);
   text-decoration: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   }
 
 .image {
@@ -418,12 +420,14 @@ input[type="submit"] {
   width: 35%;
   margin-top: 10px;
   font-family: "sabon";
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 input[type="submit"]:hover {
   background-color: rgb(4, 0, 255);
 }
+
+
 /* WEBSITE MEDIA QUERIES */
 
 /* styles for 'mobile', screen sizes up to 779px, should covers 'mobile' and 'tablet' */
@@ -443,7 +447,7 @@ input[type="submit"]:hover {
         .title {
           font-size: 1.4rem; 
         }
-      
+
         
           .menu-container {
             display: grid;
@@ -472,23 +476,19 @@ input[type="submit"]:hover {
             padding-left: 2.1rem;
           }
 
-          
-      
-        .footer {
-          bottom: 0vh; 
-        }
+       
       
  
         #popup-abstract {
-          top: 7%;
+          top: 9%;
           left: 25%;
           width: 73vw;
-          height: 40%;
+          height: 50%;
           border: ridge 5px #cccccc;
         }
         
         #popup-foreword {
-          top: 11%;
+          top: 13%;
           left: 25%;
           width: 73vw;
           height: 65%;
@@ -496,7 +496,7 @@ input[type="submit"]:hover {
         }
         
         #popup-intro {
-          top: 15%;
+          top: 17%;
           left: 25%;
           width: 73vw;
           height: 65%;
@@ -504,44 +504,44 @@ input[type="submit"]:hover {
         }
         
         #popup-gatekeep {
-          top: 7%;
+          top: 21%;
           left: 25%;
           width: 73vw;
-          height: 80%;
+          height: 65%;
           border: ridge 5px #cccccc;
         }
 
         #popup-keeping {
-          top: 11%;
+          top: 25%;
           left: 25%;
           width: 73vw;
-          height: 75%;
+          height: 65%;
           border: ridge 5px #cccccc;
         }
         
         #popup-keepout {
-          top: 15%;
+          top: 29%;
           left: 25%;
           width: 73vw;
-          height: 75%;
+          height: 65%;
           border: ridge 5px #cccccc;
         }
         
         #popup-conclusion {
-          top: 19%;
+          top: 33%;
           left: 25%;
           width: 73vw;
-          height: 70%;
+          height: 65%;
           border: ridge 5px #cccccc;
         }
         
         #popup-references {
-          top: 19%;
+          top: 37%;
           left: 25%;
           width: 73%;
           height: 60%;
           border: ridge 5px #cccccc;
-          /* font-size: small; */
+
         }
 
         #popup-gatekeep .handle-container,
@@ -566,10 +566,13 @@ input[type="submit"]:hover {
           color: #262626;
         }
       
+  
+
         .drag-bar {
-          height: 20px; 
-          font-size: 1rem; 
-        }
+    font-size: 1rem;
+    padding: 1px 10px;
+    height: 20px;
+  }
       
         .form-container {
           bottom: 0vh; 
@@ -592,8 +595,6 @@ input[type="submit"]:hover {
           text-align: center;
           color: rgba(75,75,75,.8);
           text-shadow: .5px .5px 1px #ececec,0 0 0 #000,.5px .5px 1px #ececec;
-
-
         }
 
         #popup-abstract::-webkit-scrollbar {
@@ -607,7 +608,39 @@ input[type="submit"]:hover {
         #popup-intro::-webkit-scrollbar {
           display: block;
         }
+
+        input[type="submit"] {
+          width: 50%;
+        }
+
+        input[type="email"]{
+          width: 60%;
+          height: 1rem; 
+          margin-top: 5px;
+          border: 1px solid #919090; 
+          font-family: "sabon";
+          color: #0d00ff;
+      }
+      
+      input[type="text"] {
+        width: 60%;
+        height: 1rem; 
+        margin-top: 3px;
+        border: 1px solid #919090; 
+        font-family: "sabon";
+        color: #0d00ff;
+      }
         
+      #message {
+        width:  60%; 
+        height: 12vh;  
+        resize: none; 
+        font-family: "diarycode"; 
+        line-height: 0.6rem;    
+      }
+
+  
+      
       }
       
 
