@@ -182,7 +182,7 @@ $(document).ready(function () {
     formContainer.style.display = 'block';
 
     // Handle form submission
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
+    document.getElementById('myForm').addEventListener('submit', function (event) {
         event.preventDefault();
         // You can add logic here to handle the form submission
         // For now, let's just display an alert
