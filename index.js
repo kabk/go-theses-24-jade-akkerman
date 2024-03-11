@@ -24,6 +24,8 @@ $(document).ready(function () {
         }
     }
 
+
+
     // Function to resize a window
     function resizeWindow(element, newWidth, newHeight) {
         // Set a minimum size for the popup
@@ -123,13 +125,50 @@ $(document).ready(function () {
         });
     }
 
-    // Activate the navigation links
-    $(".menu-item").mouseenter(function () {
-        // Change cursor to pointer when mouse enters menu item area
-        $(this).css('cursor', 'pointer');
+ // Activate the navigation links
+$(".menu-item").mouseenter(function () {
+    // Change cursor to pointer when mouse enters menu item area
+    $(this).css('cursor', 'pointer');
+});
+
+// Function to handle popup setup
+function setupPopup(popupElement) {
+    // Set the z-index of the popup to be the highest among all popups plus 1
+    const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
+    popupElement.style.zIndex = highestZIndex + 1;
+
+    // Make the popup draggable with bar for both vertical and horizontal dragging
+    makeDraggableWithBar(popupElement);
+
+    // Activate the close button for the popup
+    const closeButton = popupElement.querySelector('.close-button');
+    closeButton.addEventListener('click', function () {
+        closeWindow(popupElement.id);
     });
 
-    $(".menu-item").click(function () {
+    // Make the popup resizable
+    makeResizable(popupElement);
+}
+
+// Activate the navigation links
+$(".menu-item").mouseenter(function () {
+    // Change cursor to pointer when mouse enters menu item area
+    $(this).css('cursor', 'pointer');
+});
+
+$(".menu-item").click(function () {
+    // Check if the clicked menu item is the one that requires a password
+    if ($(this).attr('id') === "keepout") {
+        // Prompt for password
+        var password = prompt("Enter your name:");
+        
+        // Display the "keepout" popup
+        const popupElement = document.getElementById("popup-keepout");
+        popupElement.style.display = 'block';
+
+        // Set up the "keepout" popup
+        setupPopup(popupElement);
+    } else {
         // get the id of the clicked menu item
         var id = $(this).attr('id');
         // use it to open, close, or minimize the connected popup
@@ -143,23 +182,13 @@ $(document).ready(function () {
         } else {
             // Show the newly opened popup
             popupElement.style.display = 'block';
-            // Set the z-index of the popup to be the highest among all popups plus 1
-            const highestZIndex = Math.max(...Array.from(document.querySelectorAll('.popup')).map(popup => parseInt(window.getComputedStyle(popup).zIndex) || 0), 0);
-            popupElement.style.zIndex = highestZIndex + 1;
 
-            // make the popup draggable with bar for both vertical and horizontal dragging, and resizable
-            makeDraggableWithBar(popupElement);
-
-            // Activate the close button for the opened popup
-            const closeButton = popupElement.querySelector('.close-button');
-            closeButton.addEventListener('click', function () {
-                closeWindow(popupElement.id);
-            });
-
-            // Activate the resize handles for the opened popup
-            makeResizable(popupElement);
+            // Set up the opened popup
+            setupPopup(popupElement);
         }
-    });
+    }
+});
+
 
     // Function to handle window resizing for smaller screens
     function handleWindowResize() {
@@ -183,10 +212,12 @@ $(document).ready(function () {
 
     // Handle form submission
     document.getElementById('myForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        // You can add logic here to handle the form submission
-        // For now, let's just display an alert
-        alert('Thank you for sharing! \u2665');
+        event.preventDefault()
+        .then(response => {
+            alert('Thank you for sharing! \u2665');
+
+        })
+        .catch(console => console.error('Error!', error.message))
     });
 
 });
